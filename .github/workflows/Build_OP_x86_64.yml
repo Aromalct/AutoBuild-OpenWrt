@@ -59,7 +59,7 @@ jobs:
 
     - name: Clone source code
       env: 
-        REPO_URL1: https://github.com/Aromalct/lede
+        REPO_URL1: https://github.com/Aromalct/AutoBuild-OpenWrt
         REPO_BRANCH1: master
         REPO_URL2: https://github.com/coolsnowwolf/lede
         REPO_BRANCH2: master
