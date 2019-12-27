@@ -57,16 +57,18 @@ jobs:
         sudo -E apt-get -y autoremove --purge
         sudo -E apt-get clean
 
-    - name: Clone source code
+    - name: Download files
       env: 
         REPO_URL1: https://github.com/Aromalct/AutoBuild-OpenWrt
         REPO_BRANCH1: master
+      run: git clone --depth 1 $REPO_URL1 -b $REPO_BRANCH1 openwrt
+
+    - name: Clone source code
+      env: 
         REPO_URL2: https://github.com/coolsnowwolf/lede
         REPO_BRANCH2: master
-      run: |
-        git clone --depth 1 $REPO_URL1 -b $REPO_BRANCH1 openwrt
-        git clone --depth 1 $REPO_URL2 -b $REPO_BRANCH2 openwrt
-
+      run: git clone --depth 1 $REPO_URL2 -b $REPO_BRANCH2 openwrt
+        
     - name: Update & Install feeds
       working-directory: ./openwrt
       run: |
