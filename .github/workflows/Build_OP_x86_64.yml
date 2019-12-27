@@ -59,9 +59,13 @@ jobs:
 
     - name: Clone source code
       env: 
-        REPO_URL: https://github.com/Aromalct/lede
-        REPO_BRANCH: master
-      run: git clone --depth 1 $REPO_URL -b $REPO_BRANCH openwrt
+        REPO_URL1: https://github.com/Aromalct/lede
+        REPO_BRANCH1: master
+        REPO_URL2: https://github.com/coolsnowwolf/lede
+        REPO_BRANCH2: master
+      run: |
+        git clone --depth 1 $REPO_URL1 -b $REPO_BRANCH1 openwrt
+        git clone --depth 1 $REPO_URL2 -b $REPO_BRANCH2 openwrt
 
     - name: Update & Install feeds
       working-directory: ./openwrt
