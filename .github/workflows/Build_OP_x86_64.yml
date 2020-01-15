@@ -63,14 +63,14 @@ jobs:
         REPO_BRANCH1: master
       run: git clone --depth 1 $REPO_URL1 -b $REPO_BRANCH1 openwrt
 
-    #- name: Download files
-    #  env: 
-    #    REPO_URL2: https://github.com/Aromalct/AutoBuild-OpenWrt
-    #    REPO_BRANCH2: master
-    #  run: |
-    #    git clone --depth 1 $REPO_URL2 -b $REPO_BRANCH2 temp
-    #    mv temp/files openwrt
-    #    rm -rf temp
+    - name: Download files
+      env: 
+        REPO_URL2: https://github.com/Aromalct/AutoBuild-OpenWrt
+        REPO_BRANCH2: master
+      run: |
+        git clone --depth 1 $REPO_URL2 -b $REPO_BRANCH2 temp
+        mv temp/files openwrt
+        rm -rf temp
 
     - name: Update & Install feeds
       working-directory: ./openwrt
