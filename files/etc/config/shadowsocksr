@@ -12,6 +12,7 @@ config global
 	option tunnel_forward '1.1.1.1:53'
 	option dports '2'
 	option switch_time '60'
+	option udp_relay_server 'same'
 
 config socks5_proxy
 	option server 'nil'
