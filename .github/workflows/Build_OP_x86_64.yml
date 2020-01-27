@@ -104,4 +104,4 @@ jobs:
       uses: actions/upload-artifact@master
       with:
         name: OpenWrt
-        path: openwrt/bin/targets/x86
+        path: openwrt/bin/targets/x86/64/openwrt-x86-64-combined-squashfs.img
