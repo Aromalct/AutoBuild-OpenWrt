@@ -100,16 +100,18 @@ jobs:
         echo -e "$(nproc) thread build."
         make -j$(nproc) V=s
         
-    #- name: Assemble artifact
+    - name: Assemble artifact
     #  working-directory: ./openwrt
-    #  run: |
-    #    rm -rf ./artifact/
-    #    mkdir -p ./artifact/
-    #    find ./bin/targets/ -name "*combined*img*" | xargs -i mv -f {} ./artifact/
-    #    find ./bin/targets/ -name "*sysupgrade*bin*" | xargs -i mv -f {} ./artifact/
+      run: |
+        rm -rf ./artifact/
+        mkdir -p ./artifact/
+        find ./openwrt/bin/targets/ -name "*combined*img*" | xargs -i mv -f {} ./artifact/
+        find ./openwrt/bin/targets/ -name "*uefi*img*" | xargs -i mv -f {} ./artifact/
+    #    find ./openwrt/bin/targets/ -name "*sysupgrade*bin*" | xargs -i mv -f {} ./artifact/
 
     - name : Upload artifact
       uses: actions/upload-artifact@master
       with:
         name: OpenWrt
-        path: openwrt/bin/targets/x86/64/openwrt-x86-64-combined-squashfs.img
+        path: ./artifact/
+        #path: openwrt/bin/targets/x86/64/openwrt-x86-64-combined-squashfs.img
