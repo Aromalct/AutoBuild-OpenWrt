@@ -20,10 +20,9 @@ config smartdns
 	option coredump '0'
 	option rr_ttl_min '300'
 	option rr_ttl '172800'
-	option enabled '1'
 	list old_redirect 'dnsmasq-upstream'
 	list old_port '6053'
-	list old_enabled '1'
+	list old_enabled '0'
 
 config server
 	option enabled '1'
