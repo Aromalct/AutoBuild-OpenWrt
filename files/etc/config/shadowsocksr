@@ -12,9 +12,9 @@ config global
 	option dports '2'
 	option switch_time '60'
 	option adblock '1'
-	option run_mode 'router'
 	option global_server 'cfg064a8f'
 	option adblock_url 'https://gitee.com/privacy-protection-tools/anti-ad/raw/master/easylist.txt'
+	option run_mode 'gfw'
 
 config socks5_proxy
 	option server 'nil'
@@ -39,8 +39,8 @@ config server_global
 
 config server_subscribe
 	option proxy '0'
-	option auto_update_time '2'
 	option auto_update '1'
+	option auto_update_time '3'
 
 config servers
 	option type 'v2ray'
