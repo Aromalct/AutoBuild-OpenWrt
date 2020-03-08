@@ -1,15 +1,12 @@
 
 config dnsmasq
 	option domainneeded '1'
-	option boguspriv '1'
-	option filterwin2k '0'
 	option localise_queries '1'
 	option rebind_protection '1'
 	option rebind_localhost '1'
 	option local '/lan/'
 	option domain 'lan'
 	option expandhosts '1'
-	option nonegcache '0'
 	option authoritative '1'
 	option readethers '1'
 	option leasefile '/tmp/dhcp.leases'
@@ -17,6 +14,10 @@ config dnsmasq
 	option localservice '1'
 	option filter_aaaa '1'
 	option resolvfile '/tmp/resolv.conf.auto'
+	option mini_ttl '86400'
+	option cachesize '10000'
+	list server '127.0.0.1#5333'
+	option noresolv '0'
 
 config dhcp 'lan'
 	option interface 'lan'
