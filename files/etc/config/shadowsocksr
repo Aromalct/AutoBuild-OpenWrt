@@ -1,5 +1,15 @@
 
 config servers
+	option type 'trojan'
+	option server '6.aromali.tk'
+	option server_port '443'
+	option password '85525d39'
+	option tls '1'
+	option switch_enable '1'
+	option local_port '1234'
+	option alias 'PR-Trojan'
+
+config servers
 	option type 'v2ray'
 	option alias 'B-GIA2356'
 	option server '3.aromali.tk'
@@ -10,6 +20,22 @@ config servers
 	option transport 'ws'
 	option ws_path '/2356'
 	option insecure '1'
+	option tls '1'
+	option mux '1'
+	option concurrency '8'
+	option switch_enable '1'
+	option local_port '1234'
+
+config servers
+	option type 'v2ray'
+	option alias 'M2356'
+	option server '5.aromali.tk'
+	option server_port '443'
+	option alter_id '64'
+	option vmess_id '70ac0535-9097-41e3-b29d-91f2ae6ac18f'
+	option security 'aes-128-gcm'
+	option transport 'ws'
+	option ws_path '/2356'
 	option tls '1'
 	option mux '1'
 	option concurrency '8'
@@ -48,7 +74,7 @@ config global
 	option adblock '1'
 	option adblock_url 'https://gitee.com/privacy-protection-tools/anti-ad/raw/master/easylist.txt'
 	option run_mode 'router'
-	option global_server 'cfg014a8f'
+	option global_server 'cfg024a8f'
 
 config socks5_proxy
 	option server 'nil'
@@ -76,20 +102,4 @@ config server_subscribe
 	option auto_update '1'
 	option auto_update_time '3'
 	option switch '1'
-
-config servers
-	option type 'v2ray'
-	option alias 'M2356'
-	option server '5.aromali.tk'
-	option server_port '443'
-	option alter_id '64'
-	option vmess_id '70ac0535-9097-41e3-b29d-91f2ae6ac18f'
-	option security 'aes-128-gcm'
-	option transport 'ws'
-	option ws_path '/2356'
-	option tls '1'
-	option mux '1'
-	option concurrency '8'
-	option switch_enable '1'
-	option local_port '1234'
 
