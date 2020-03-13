@@ -1,0 +1,8 @@
+
+config unblockmusic
+	option musicapptype 'kuwo'
+	option endpoint 'http://music.163.com'
+	option enabled '1'
+	option apptype 'nodejs'
+	option autoupdate '1'
+
