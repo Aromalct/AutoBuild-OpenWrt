@@ -72,10 +72,10 @@ config global
 	option switch_time '60'
 	option adblock '1'
 	option run_mode 'router'
-	option global_server 'cfg024a8f'
 	option chnroute '1'
 	option chnroute_url 'https://ispip.clang.cn/all_cn.txt'
 	option adblock_url 'https://gitee.com/privacy-protection-tools/anti-ad/raw/master/anti-ad-for-dnsmasq.conf'
+	option global_server 'cfg024a8f'
 
 config socks5_proxy
 	option server 'nil'
