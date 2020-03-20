@@ -1,7 +1,3 @@
-Build_x86_64
-This run
-Workflow file
-.github/workflows/Build_OP_x86_64.yml
 #=================================================
 # Description: Build OpenWrt using GitHub Actions
 # Lisence: MIT
@@ -112,4 +108,3 @@ jobs:
       with:
         name: OpenWrt
         path: ./artifact/
-        #path: openwrt/bin/targets/x86/64/openwrt-x86-64-combined-squashfs.img
