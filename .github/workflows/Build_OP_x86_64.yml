@@ -105,13 +105,13 @@ jobs:
         find dl -size -1024c -exec ls -l {} \;
         find dl -size -1024c -exec rm -f {} \;
 
-    - name: 编译固件
+    - name: Build firmware
       working-directory: ./openwrt
       run: |
         echo -e "$(nproc) thread build."
         make -j$(nproc) V=s
         
-    - name: 固件打包
+    - name: Assemble artifact
     #  working-directory: ./openwrt
       run: |
         rm -rf ./artifact/
@@ -120,7 +120,7 @@ jobs:
     #    find ./openwrt/bin/targets/ -name "*combined*img*" | xargs -i mv -f {} ./artifact/
     #    find ./openwrt/bin/targets/ -name "*sysupgrade*bin*" | xargs -i mv -f {} ./artifact/
 
-    - name : 固件上传
+    - name : Upload artifact
       uses: actions/upload-artifact@master
       with:
         name: OpenWrt
