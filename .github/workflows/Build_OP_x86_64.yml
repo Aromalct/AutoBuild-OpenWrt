@@ -24,12 +24,13 @@ on:
 jobs:
   build:
     runs-on: ubuntu-16.04
+    if: github.event.repository.owner.id == github.event.sender.id
 
     steps:
     - name: Checkout
       uses: actions/checkout@master
 
-    - name: Initialization environment
+    - name: 初始化环境
       env:
         DEBIAN_FRONTEND: noninteractive
       run: |
@@ -56,13 +57,25 @@ jobs:
         sudo -E apt-get -y install build-essential asciidoc binutils bzip2 gawk gettext git libncurses5-dev patch unzip zlib1g-dev lib32gcc1 libc6-dev-i386 subversion flex node-uglify gcc-multilib p7zip p7zip-full msmtp libssl-dev texinfo libglib2.0-dev xmlto qemu-utils upx-ucl libelf-dev autoconf automake libtool autopoint device-tree-compiler libuv-dev
         sudo -E apt-get -y autoremove --purge
         sudo -E apt-get clean
-    - name: Clone source code
+        
+    - name: 克隆源代码
       env: 
         REPO_URL1: https://github.com/coolsnowwolf/lede
         REPO_BRANCH1: master
       run: git clone --depth 1 $REPO_URL1 -b $REPO_BRANCH1 openwrt
 
-    - name: Download files
+    #- name: Import external feeds
+    #  working-directory: ./openwrt
+    #  run: |
+    #    git clone https://github.com/Lienol/openwrt-package package/lienol
+    #    git clone "your_github_link" package/"your_folder_name"   
+
+    #- name: Download files
+    #  working-directory: ./openwrt
+    #  run: |
+    #    git clone https://github.com/Aromalct/AutoBuild-OpenWrt/tree/master/files files
+
+    - name: 下载配置文件
       env: 
         REPO_URL2: https://github.com/Aromalct/AutoBuild-OpenWrt
         REPO_BRANCH2: master
@@ -70,31 +83,35 @@ jobs:
         git clone --depth 1 $REPO_URL2 -b $REPO_BRANCH2 temp
         mv temp/files openwrt
         rm -rf temp
-    - name: Update & Install feeds
+        
+    - name: 更新和安装feeds
       working-directory: ./openwrt
       run: |
         ./scripts/feeds update -a
         ./scripts/feeds install -a
-    - name: Configuration Customization - Build_x86_64
+        
+    - name: 自定义编译配置 - Build_x86_64
       env:
         CONFIG_FILE: 'x86_64.config'
       run: |
         [ -e $CONFIG_FILE ] && mv $CONFIG_FILE openwrt/.config
         chmod +x ./customize.sh && ./customize.sh
         cd openwrt && make defconfig
-    - name: Download package
+        
+    - name: 下载并校核插件包
       working-directory: ./openwrt
       run: |
         make download -j$(nproc)
         find dl -size -1024c -exec ls -l {} \;
         find dl -size -1024c -exec rm -f {} \;
-    - name: Build firmware
+        
+    - name: 编译固件
       working-directory: ./openwrt
       run: |
         echo -e "$(nproc) thread build."
         make -j$(nproc) V=s
         
-    - name: Assemble artifact
+    - name: 固件打包
     #  working-directory: ./openwrt
       run: |
         rm -rf ./artifact/
@@ -103,8 +120,9 @@ jobs:
     #    find ./openwrt/bin/targets/ -name "*combined*img*" | xargs -i mv -f {} ./artifact/
     #    find ./openwrt/bin/targets/ -name "*sysupgrade*bin*" | xargs -i mv -f {} ./artifact/
 
-    - name : Upload artifact
+    - name : 固件上传
       uses: actions/upload-artifact@master
       with:
         name: OpenWrt
         path: ./artifact/
+        #path: openwrt/bin/targets/x86/64/openwrt-x86-64-combined-squashfs.img
