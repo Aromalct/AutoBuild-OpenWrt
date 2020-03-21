@@ -109,7 +109,7 @@ jobs:
       working-directory: ./openwrt
       run: |
         echo -e "$(nproc) thread build."
-        make -j$(nproc) V=s
+        make -j1 V=s
         
     - name: 固件打包
     #  working-directory: ./openwrt
