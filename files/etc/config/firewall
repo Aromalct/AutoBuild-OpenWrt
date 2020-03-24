@@ -127,6 +127,21 @@ config rule
 config include
 	option path '/etc/firewall.user'
 
+config redirect
+	option target 'DNAT'
+	option src 'wan'
+	option dest 'lan'
+	option proto 'tcp'
+	option dest_ip '192.168.2.2'
+	option dest_port '80'
+	option name 'DDNS'
+	option src_dport '7089'
+
+config include 'zerotier'
+	option type 'script'
+	option path '/etc/zerotier.start'
+	option reload '1'
+
 config include 'adbyby'
 	option type 'script'
 	option path '/var/etc/adbyby.include'
@@ -138,6 +153,37 @@ config rule 'adblock'
 	option src 'wan'
 	option proto 'tcp'
 	option dest_port '8118'
+
+config include 'ipsecd'
+	option type 'script'
+	option path '/etc/ipsec.include'
+	option reload '1'
+
+config rule 'ike'
+	option name 'ike'
+	option target 'ACCEPT'
+	option src 'wan'
+	option proto 'udp'
+	option dest_port '500'
+
+config rule 'ipsec'
+	option name 'ipsec'
+	option target 'ACCEPT'
+	option src 'wan'
+	option proto 'udp'
+	option dest_port '4500'
+
+config rule 'ah'
+	option name 'ah'
+	option target 'ACCEPT'
+	option src 'wan'
+	option proto 'ah'
+
+config rule 'esp'
+	option name 'esp'
+	option target 'ACCEPT'
+	option src 'wan'
+	option proto 'esp'
 
 config rule 'kms'
 	option name 'kms'
@@ -155,14 +201,4 @@ config include 'unblockmusic'
 	option type 'script'
 	option path '/var/etc/unblockmusic.include'
 	option reload '1'
-
-config redirect
-	option target 'DNAT'
-	option src 'wan'
-	option dest 'lan'
-	option proto 'tcp'
-	option dest_ip '192.168.2.2'
-	option dest_port '80'
-	option name 'DDNS'
-	option src_dport '7089'
 
