@@ -71,11 +71,15 @@ config global
 	option dports '2'
 	option switch_time '60'
 	option adblock '1'
-	option run_mode 'router'
 	option chnroute '1'
 	option chnroute_url 'https://ispip.clang.cn/all_cn.txt'
 	option adblock_url 'https://gitee.com/privacy-protection-tools/anti-ad/raw/master/anti-ad-for-dnsmasq.conf'
+	option gfwlist_url 'https://cdn.jsdelivr.net/gh/Loukky/gfwlist-by-loukky/gfwlist.txt'
+	option nfip_url 'https://raw.githubusercontent.com/QiuSimons/Netflix_IP/master/NF_only.txt'
 	option global_server 'cfg024a8f'
+	option netflix_server 'same'
+	option netflix_proxy '0'
+	option run_mode 'gfw'
 
 config socks5_proxy
 	option server 'nil'
@@ -101,11 +105,18 @@ config access_control
 	list wan_bp_ips '155.94.164.135'
 
 config server_global
-	option enable_server '0'
+	option enable_server '1'
 
 config server_subscribe
 	option proxy '0'
 	option auto_update '1'
 	option auto_update_time '3'
 	option switch '1'
+
+config server_config
+	option enable '1'
+	option type 'socks5'
+	option server_port '10800'
+	option username 'Aromalct'
+	option password 'Aromalct1982'
 
