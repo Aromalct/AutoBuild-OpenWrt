@@ -16,8 +16,8 @@ config dnsmasq
 	option resolvfile '/tmp/resolv.conf.auto'
 	option mini_ttl '86400'
 	option cachesize '10000'
-	option noresolv '0'
 	list server '127.0.0.1#5333'
+	option noresolv '0'
 
 config dhcp 'lan'
 	option interface 'lan'
@@ -33,4 +33,39 @@ config srvhost
 	option port '1688'
 	option class '0'
 	option weight '100'
+
+'
+	option port '1688'
+	option class '0'
+	option weight '100'
+
+config host
+	option name 'Honor_V10'
+	option dns '1'
+	option mac '04:79:70:78:b5:92'
+	option ip '192.168.2.11'
+
+config host
+	option name 'P20_Pro'
+	option dns '1'
+	option mac '38:37:8b:e0:df:22'
+	option ip '192.168.2.12'
+
+config host
+	option name 'iPad_air2'
+	option dns '1'
+	option mac '74:81:14:ac:c3:4d'
+	option ip '192.168.2.19'
+
+config host
+	option name 'MiAi_HD'
+	option dns '1'
+	option mac 'cc:4b:73:a3:0e:38'
+	option ip '192.168.2.30'
+
+config host
+	option name 'MiAi'
+	option dns '1'
+	option mac '8c:53:c3:73:ed:cd'
+	option ip '192.168.2.31'
 
