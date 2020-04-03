@@ -17,11 +17,13 @@ config dnsmasq
 	option mini_ttl '86400'
 	option cachesize '10000'
 	list server '127.0.0.1#5333'
-	option noresolv '0'
 
 config dhcp 'lan'
 	option interface 'lan'
-	option ignore '1'
+	option start '11'
+	option limit '150'
+	option leasetime '12h'
+	option force '1'
 
 config dhcp 'wan'
 	option interface 'wan'
@@ -34,10 +36,35 @@ config srvhost
 	option class '0'
 	option weight '100'
 
-'
-	option port '1688'
-	option class '0'
-	option weight '100'
+config host
+	option name 'Jike-gateway-net1'
+	option dns '1'
+	option mac 'aa:ba:5a:8a:32:7c'
+	option ip '192.168.2.3'
+
+config host
+	option name 'Jike-gateway-net2'
+	option dns '1'
+	option mac 'aa:ba:fc:6a:84:5a'
+	option ip '192.168.2.4'
+
+config host
+	option name 'Jike-AP-K2P'
+	option dns '1'
+	option mac '68:db:54:e8:fb:f8'
+	option ip '192.168.2.5'
+
+config host
+	option name 'Jike-AP-K2'
+	option dns '1'
+	option mac 'cc:81:da:b4:59:89'
+	option ip '192.168.2.6'
+
+config host
+	option name 'Jike-AP-K2zu'
+	option dns '1'
+	option mac 'cc:81:da:bf:62:a9'
+	option ip '192.168.2.7'
 
 config host
 	option name 'Honor_V10'
@@ -52,10 +79,46 @@ config host
 	option ip '192.168.2.12'
 
 config host
+	option name 'LMZ_Mate_8'
+	option dns '1'
+	option mac '60:83:34:0a:59:42'
+	option ip '192.168.2.13'
+
+config host
+	option name 'XWJ_Mate_8'
+	option dns '1'
+	option mac 'dc:ee:06:59:73:bf'
+	option ip '192.168.2.14'
+
+config host
+	option name 'Samsung'
+	option dns '1'
+	option mac 'f0:25:b7:30:a9:14'
+	option ip '192.168.2.15'
+
+config host
+	option name 'iPhone'
+	option dns '1'
+	option mac 'c8:6f:1d:71:52:3a'
+	option ip '192.168.2.16'
+
+config host
 	option name 'iPad_air2'
 	option dns '1'
 	option mac '74:81:14:ac:c3:4d'
-	option ip '192.168.2.19'
+	option ip '192.168.2.21'
+
+config host
+	option name 'iPad-mini2'
+	option dns '1'
+	option mac '1c:9e:46:41:5f:b9'
+	option ip '192.168.2.22'
+
+config host
+	option name 'IBM'
+	option dns '1'
+	option mac '00:18:de:4a:f7:ad'
+	option ip '192.168.2.24'
 
 config host
 	option name 'MiAi_HD'
@@ -68,4 +131,37 @@ config host
 	option dns '1'
 	option mac '8c:53:c3:73:ed:cd'
 	option ip '192.168.2.31'
+
+config host
+	option name 'lumi-gateway-v3'
+	option dns '1'
+	option mac '34:ce:00:90:85:30'
+	option ip '192.168.2.32'
+
+config host
+	option name 'lumi-acpartner-v2'
+	option dns '1'
+	option mac '7c:49:eb:1a:b7:35'
+	option ip '192.168.2.33'
+
+config host
+	option name 'chuangmi-remote-v2'
+	option dns '1'
+	option mac '04:cf:8c:1b:8d:72'
+	option ip '192.168.2.34'	
+
+config host
+	option name 'chuangmi-plug-v3'
+	option dns '1'
+	option mac '40:31:3c:d6:f9:89'
+	option ip '192.168.2.35'	
+
+
+
+
+
+
+
+
+
 

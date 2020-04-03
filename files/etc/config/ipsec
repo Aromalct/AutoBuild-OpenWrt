@@ -3,7 +3,7 @@ config service 'ipsec'
 	option enabled '1'
 	option account 'root'
 	option password '123456789'
-	option clientip '192.168.2.6/24'
 	option clientdns '192.168.2.2'
 	option secret 'myopenwrt'
+	option clientip '192.168.2.10/24'
 

@@ -5,8 +5,7 @@ config defaults
 	option output 'ACCEPT'
 	option forward 'REJECT'
 	option fullcone '1'
-	option flow_offloading '1'
-	option flow_offloading_hw '0'
+	option flow_offloading '0'
 
 config zone
 	option name 'lan'
@@ -17,13 +16,17 @@ config zone
 
 config zone
 	option name 'wan'
-	list network 'wan'
-	list network 'wan6'
-	option input 'REJECT'
 	option output 'ACCEPT'
-	option forward 'REJECT'
 	option masq '1'
 	option mtu_fix '1'
+	option forward 'REJECT'
+	option input 'REJECT'
+	list network 'vwan1'
+	list network 'vwan2'
+	list network 'vwan3'
+	list network 'vwan4'
+	list network 'wan'
+	list network 'wan6'
 
 config forwarding
 	option src 'lan'
@@ -127,9 +130,25 @@ config rule
 config include
 	option path '/etc/firewall.user'
 
+config redirect
+	option target 'DNAT'
+	option src 'wan'
+	option dest 'lan'
+	option proto 'tcp'
+	option dest_ip '192.168.2.2'
+	option dest_port '80'
+	option src_dport '7089'
+	option name 'openwrt'
+	option reflection '0'
+
+config include 'zerotier'
+	option type 'script'
+	option path '/etc/zerotier.start'
+	option reload '1'
+
 config include 'adbyby'
 	option type 'script'
-	option path '/usr/share/adbyby/firewall.include'
+	option path '/var/etc/adbyby.include'
 	option reload '1'
 
 config rule 'adblock'
@@ -138,25 +157,6 @@ config rule 'adblock'
 	option src 'wan'
 	option proto 'tcp'
 	option dest_port '8118'
-
-config rule 'kms'
-	option name 'kms'
-	option target 'ACCEPT'
-	option src 'wan'
-	option proto 'tcp'
-	option dest_port '1688'
-
-config include 'shadowsocksr'
-	option type 'script'
-	option path '/var/etc/shadowsocksr.include'
-	option reload '1'
-
-config include 'unblockmusic'
-	option type 'script'
-	option path '/var/etc/unblockmusic.include'
-	option reload '1'
-
-t '8118'
 
 config include 'ipsecd'
 	option type 'script'
