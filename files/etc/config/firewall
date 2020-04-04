@@ -139,7 +139,6 @@ config redirect
 	option dest_port '80'
 	option src_dport '7089'
 	option name 'openwrt'
-	option reflection '0'
 
 config include 'zerotier'
 	option type 'script'

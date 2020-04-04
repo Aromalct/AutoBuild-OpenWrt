@@ -12,7 +12,6 @@ config dnsmasq
 	option leasefile '/tmp/dhcp.leases'
 	option nonwildcard '1'
 	option localservice '1'
-	option filter_aaaa '1'
 	option resolvfile '/tmp/resolv.conf.auto'
 	option mini_ttl '86400'
 	option cachesize '10000'
@@ -45,8 +44,8 @@ config host
 config host
 	option name 'Jike-gateway-net2'
 	option dns '1'
-	option mac 'aa:ba:fc:6a:84:5a'
 	option ip '192.168.2.4'
+	option mac '00:0c:29:c6:98:75'
 
 config host
 	option name 'Jike-AP-K2P'
@@ -103,6 +102,12 @@ config host
 	option ip '192.168.2.16'
 
 config host
+	option name 'Nubia'
+	option dns '1'
+	option mac '98:6c:f5:67:44:ac'
+	option ip '192.168.2.17'
+
+config host
 	option name 'iPad_air2'
 	option dns '1'
 	option mac '74:81:14:ac:c3:4d'
@@ -115,10 +120,22 @@ config host
 	option ip '192.168.2.22'
 
 config host
+	option name 'PC-wifi'
+	option dns '1'
+	option mac '70:85:c2:7f:b0:e8'
+	option ip '192.168.2.23'
+
+config host
+	option name 'PC-lan'
+	option dns '1'
+	option mac '14:cf:92:00:88:7a'
+	option ip '192.168.2.24'
+
+config host
 	option name 'IBM'
 	option dns '1'
 	option mac '00:18:de:4a:f7:ad'
-	option ip '192.168.2.24'
+	option ip '192.168.2.25'
 
 config host
 	option name 'MiAi_HD'
@@ -148,20 +165,11 @@ config host
 	option name 'chuangmi-remote-v2'
 	option dns '1'
 	option mac '04:cf:8c:1b:8d:72'
-	option ip '192.168.2.34'	
+	option ip '192.168.2.34'
 
 config host
 	option name 'chuangmi-plug-v3'
 	option dns '1'
 	option mac '40:31:3c:d6:f9:89'
-	option ip '192.168.2.35'	
-
-
-
-
-
-
-
-
-
+	option ip '192.168.2.35'
 
