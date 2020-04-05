@@ -7,12 +7,11 @@ config adbyby
 	option update_source '1'
 	option wan_mode '0'
 	option block_ios '1'
-	option enable '1'
-
-list subscribe_url 'https://gitee.com/privacy-protection-tools/anti-ad/raw/master/anti-ad-for-dnsmasq.conf'
+	list subscribe_url 'https://gitee.com/privacy-protection-tools/anti-ad/raw/master/anti-ad-for-dnsmasq.conf'
 	list subscribe_url 'https://easylist-downloads.adblockplus.org/easylistchina.txt'
 	list subscribe_url 'https://easylist-downloads.adblockplus.org/easyprivacy.txt'
 	list subscribe_url 'https://raw.githubusercontent.com/cjx82630/cjxlist/master/cjx-annoyance.txt'
 	list subscribe_url 'https://gitee.com/xinggsf/Adblock-Rule/raw/master/rule.txt'
 	list subscribe_url 'https://gitee.com/xinggsf/Adblock-Rule/raw/master/mv.txt'
+	option enable '0'
 

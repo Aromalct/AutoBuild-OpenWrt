@@ -79,7 +79,7 @@ config global
 	option netflix_proxy '0'
 	option netflix_server 'nil'
 	option run_mode 'router'
-	option global_server 'cfg014a8f'
+	option global_server 'cfg024a8f'
 
 config socks5_proxy
 	option server 'nil'
