@@ -15,7 +15,6 @@ config dnsmasq
 	option resolvfile '/tmp/resolv.conf.auto'
 	option mini_ttl '86400'
 	option cachesize '10000'
-	option noresolv '0'
 	list server '127.0.0.1#5333'
 
 config dhcp 'lan'
@@ -173,4 +172,10 @@ config host
 	option dns '1'
 	option mac '40:31:3c:d6:f9:89'
 	option ip '192.168.2.35'
+
+config host
+	option name 'chuangmi-plug-hmi208'
+	option dns '1'
+	option mac '5c:e5:0c:42:ec:f2'
+	option ip '192.168.2.36'
 
