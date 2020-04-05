@@ -1,0 +1,12 @@
+0 18 * * * uci set shadowsocksr.@global[0].global_server='cfg024a8f' && uci commit shadowsocksr && /etc/init.d/shadowsocksr restart
+0 7 * * * uci set shadowsocksr.@global[0].global_server='cfg034a8f' && uci commit shadowsocksr && /etc/init.d/shadowsocksr restart
+
+
+
+
+
+
+10 4 * * * sleep 5 && touch /etc/banner && reboot
+0 1 * * * echo "" > /tmp/ssrplus.log
+0 3 * * * /usr/share/shadowsocksr/ssrplusupdate.sh >> /tmp/ssrplus.log 2>&1
+0 2 * * * /usr/share/UnblockNeteaseMusic/update_core.sh 2>&1
