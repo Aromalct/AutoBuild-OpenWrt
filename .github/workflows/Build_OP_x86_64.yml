@@ -73,7 +73,6 @@ jobs:
     - name: Import external feeds
       working-directory: ./openwrt
       run: |
-        cd lede//
         git clone https://github.com/fw876/helloworld package/lean
         
     #- name: Download files
