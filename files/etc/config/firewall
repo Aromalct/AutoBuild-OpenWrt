@@ -221,12 +221,12 @@ config redirect
 	option target 'DNAT'
 	option src 'wan'
 	option dest 'lan'
-	option proto 'tcp udp'
-	option dest_ip '192.168.2.5'
 	option dest_port '80'
 	option name 'jike'
 	option src_dport '7090'
 	option reflection '0'
+	option dest_ip '192.168.2.3'
+	option proto 'tcp'
 
 config redirect
 	option target 'DNAT'

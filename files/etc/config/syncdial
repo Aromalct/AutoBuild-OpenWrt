@@ -11,5 +11,5 @@ config syncdial 'config'
 	option enabled '1'
 	option dial_type '1'
 	option devbackup 'wan wan6'
-	option wannum '4'
+	option wannum '3'
 
