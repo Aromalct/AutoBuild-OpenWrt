@@ -73,7 +73,7 @@ jobs:
     - name: Import external feeds
       working-directory: ./openwrt
       run: |
-        git clone https://github.com/fw876/helloworld package/lean
+        git clone https://github.com/fw876/helloworld package/lean/luci-app-ssr-plus
         
     #- name: Download files
     #  working-directory: ./openwrt
