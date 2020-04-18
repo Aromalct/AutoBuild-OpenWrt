@@ -70,10 +70,10 @@ jobs:
     #    git clone https://github.com/Lienol/openwrt-package package/lienol
     #    git clone "your_github_link" package/"your_folder_name"   
 
-    - name: Import external feeds
-      working-directory: ./openwrt
-      run: |
-        git clone https://github.com/fw876/helloworld package/lean/luci-app-ssr-plus
+    #- name: Import external feeds
+    #  working-directory: ./openwrt
+    #  run: |
+    #    git clone https://github.com/fw876/helloworld package/lean/luci-app-ssr-plus
         
     #- name: Download files
     #  working-directory: ./openwrt
@@ -92,7 +92,7 @@ jobs:
     - name: 更新和安装feeds
       working-directory: ./openwrt
       run: |
-        sed -i 's/\"#src-git\"/\"src-git\"/g' ./feeds.conf.default
+        sed -i 's/\#src-git helloworld/\src-git helloworld/g' ./feeds.conf.default
         ./scripts/feeds update -a
         ./scripts/feeds install -a
         
