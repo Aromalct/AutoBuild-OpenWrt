@@ -10,20 +10,20 @@ config dnsmasq
 	option authoritative '1'
 	option readethers '1'
 	option leasefile '/tmp/dhcp.leases'
+	option resolvfile '/tmp/resolv.conf.auto'
 	option nonwildcard '1'
 	option localservice '1'
-	option resolvfile '/tmp/resolv.conf.auto'
-	option mini_ttl '86400'
-	option cachesize '10000'
-	list server '127.0.0.1#5333'
-	option filter_aaaa '1'
+	option port '53'
+	option enable_tftp '1'
+	option dhcp_boot 'pxelinux.0'
+	option tftp_root '/root'
+	option noresolv '0'
 
 config dhcp 'lan'
 	option interface 'lan'
-	option start '11'
 	option limit '150'
 	option leasetime '12h'
-	option force '1'
+	option start '3'
 
 config dhcp 'wan'
 	option interface 'wan'
@@ -151,32 +151,32 @@ config host
 	option ip '192.168.2.31'
 
 config host
-	option name 'lumi-gateway-v3'
 	option dns '1'
 	option mac '34:ce:00:90:85:30'
 	option ip '192.168.2.32'
+	option name 'mi-gateway'
 
 config host
-	option name 'lumi-acpartner-v2'
 	option dns '1'
 	option mac '7c:49:eb:1a:b7:35'
 	option ip '192.168.2.33'
+	option name 'mi-kongtiao'
 
 config host
-	option name 'chuangmi-remote-v2'
 	option dns '1'
 	option mac '04:cf:8c:1b:8d:72'
 	option ip '192.168.2.34'
+	option name 'mi-wangneng'
 
 config host
-	option name 'chuangmi-plug-v3'
 	option dns '1'
 	option mac '40:31:3c:d6:f9:89'
 	option ip '192.168.2.35'
+	option name 'mi-wifi-power'
 
 config host
-	option name 'chuangmi-plug-hmi208'
 	option dns '1'
 	option mac '5c:e5:0c:42:ec:f2'
 	option ip '192.168.2.36'
+	option name 'mi-blue-gateway'
 

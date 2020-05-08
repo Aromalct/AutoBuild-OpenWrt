@@ -10,24 +10,19 @@ config defaults
 
 config zone
 	option name 'lan'
-	list network 'lan'
 	option input 'ACCEPT'
 	option output 'ACCEPT'
 	option forward 'ACCEPT'
+	option network 'lan'
 
 config zone
 	option name 'wan'
 	option output 'ACCEPT'
 	option masq '1'
 	option mtu_fix '1'
-	option forward 'REJECT'
 	option input 'REJECT'
-	list network 'vwan1'
-	list network 'vwan2'
-	list network 'vwan3'
-	list network 'vwan4'
-	list network 'wan'
-	list network 'wan6'
+	option forward 'REJECT'
+	option network 'vwan1 vwan2 vwan3 vwan4 wan'
 
 config forwarding
 	option src 'lan'
@@ -131,19 +126,15 @@ config rule
 config include
 	option path '/etc/firewall.user'
 
-config redirect
-	option target 'DNAT'
-	option src 'wan'
-	option dest 'lan'
-	option proto 'tcp'
-	option dest_ip '192.168.2.2'
-	option dest_port '80'
-	option src_dport '7089'
-	option name 'openwrt'
-
 config include 'zerotier'
 	option type 'script'
 	option path '/etc/zerotier.start'
+	option reload '1'
+
+config include 'miniupnpd'
+	option type 'script'
+	option path '/usr/share/miniupnpd/firewall.include'
+	option family 'any'
 	option reload '1'
 
 config include 'adbyby'
@@ -189,6 +180,43 @@ config rule 'esp'
 	option src 'wan'
 	option proto 'esp'
 
+config include 'brook_server'
+	option type 'script'
+	option path '/usr/share/brook_server/firewall.include'
+	option reload '1'
+
+config include 'passwall'
+	option type 'script'
+	option path '/var/etc/passwall.include'
+	option reload '1'
+
+config include 'pptpd'
+	option type 'script'
+	option path '/usr/share/pptpd/firewall.include'
+	option reload '1'
+
+config include 'softethervpn'
+	option type 'script'
+	option path '/usr/share/softethervpn/firewall.include'
+	option reload '1'
+
+config rule 'ssrs'
+	option name 'ssrs'
+	option target 'ACCEPT'
+	option src 'wan'
+	option proto 'tcp'
+	option dest_port '10240'
+
+config include 'trojan_server'
+	option type 'script'
+	option path '/usr/share/trojan_server/firewall.include'
+	option reload '1'
+
+config include 'v2ray_server'
+	option type 'script'
+	option path '/usr/share/v2ray_server/firewall.include'
+	option reload '1'
+
 config rule 'kms'
 	option name 'kms'
 	option target 'ACCEPT'
@@ -196,10 +224,48 @@ config rule 'kms'
 	option proto 'tcp'
 	option dest_port '1688'
 
+config include 'koolproxy'
+	option type 'script'
+	option path '/var/etc/koolproxy.include'
+	option reload '1'
+
 config include 'shadowsocksr'
 	option type 'script'
 	option path '/var/etc/shadowsocksr.include'
 	option reload '1'
+
+config include 'wrtbwmon'
+	option type 'script'
+	option path '/etc/wrtbwmon.include'
+	option reload '1'
+
+config include 'mia'
+	option type 'script'
+	option path '/etc/mia.include'
+	option reload '1'
+
+config rule 'openvpn'
+	option name 'openvpn'
+	option target 'ACCEPT'
+	option src 'wan'
+	option proto 'tcp udp'
+	option dest_port '1194'
+
+config zone 'vpn'
+	option name 'vpn'
+	option input 'ACCEPT'
+	option forward 'ACCEPT'
+	option output 'ACCEPT'
+	option masq '1'
+	option network 'vpn0'
+
+config forwarding 'vpnwan'
+	option src 'vpn'
+	option dest 'wan'
+
+config forwarding 'vpnlan'
+	option src 'vpn'
+	option dest 'lan'
 
 config include 'unblockmusic'
 	option type 'script'
@@ -210,32 +276,9 @@ config redirect
 	option target 'DNAT'
 	option src 'wan'
 	option dest 'lan'
-	option proto 'tcp'
-	option src_dport '7087'
-	option dest_ip '192.168.2.150'
-	option dest_port '443'
-	option name 'ESXI'
-	option reflection '0'
-
-config redirect
-	option target 'DNAT'
-	option src 'wan'
-	option dest 'lan'
+	option proto 'tcp udp'
+	option src_dport '7089'
+	option dest_ip '192.168.2.2'
+	option name 'openwrt'
 	option dest_port '80'
-	option name 'jike'
-	option src_dport '7090'
-	option reflection '0'
-	option dest_ip '192.168.2.3'
-	option proto 'tcp'
-
-config redirect
-	option target 'DNAT'
-	option src 'wan'
-	option dest 'lan'
-	option dest_ip '192.168.2.1'
-	option dest_port '80'
-	option name 'ROS'
-	option proto 'tcp'
-	option src_dport '7088'
-	option reflection '0'
 
