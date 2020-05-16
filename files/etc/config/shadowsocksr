@@ -7,7 +7,6 @@ config global
 	option monitor_enable '1'
 	option enable_switch '1'
 	option switch_timeout '5'
-	option switch_time '667'
 	option switch_try_count '3'
 	option gfwlist_url 'https://cdn.jsdelivr.net/gh/gfwlist/gfwlist/gfwlist.txt'
 	option chnroute_url 'https://ispip.clang.cn/all_cn.txt'
@@ -19,11 +18,14 @@ config global
 	option netflix_proxy '0'
 	option tunnel_forward '1.1.1.1:53'
 	option udp_relay_server 'same'
+	option adblock '1'
+	option switch_time '60'
 
 config socks5_proxy
 	option socks '0'
 	option local_port '1080'
 	option local_address '0.0.0.0'
+	option server 'nil'
 
 config access_control
 	option wan_bp_list '/etc/ssr/china_ssr.txt'
@@ -39,7 +41,7 @@ config access_control
 	list wan_bp_ips '155.94.164.135'
 
 config server_global
-	option enable_server '0'
+	option enable_server '1'
 
 config server_subscribe
 	option proxy '0'
