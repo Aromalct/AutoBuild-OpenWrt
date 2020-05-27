@@ -8,7 +8,6 @@ config global
 	option enable_switch '1'
 	option switch_timeout '5'
 	option switch_try_count '3'
-	option gfwlist_url 'https://cdn.jsdelivr.net/gh/gfwlist/gfwlist/gfwlist.txt'
 	option chnroute_url 'https://ispip.clang.cn/all_cn.txt'
 	option nfip_url 'https://raw.githubusercontent.com/QiuSimons/Netflix_IP/master/NF_only.txt'
 	option adblock_url 'https://gitee.com/privacy-protection-tools/anti-ad/raw/master/anti-ad-for-dnsmasq.conf'
@@ -20,6 +19,7 @@ config global
 	option udp_relay_server 'same'
 	option adblock '1'
 	option switch_time '60'
+	option gfwlist_url 'https://cdn.jsdelivr.net/gh/Loukky/gfwlist-by-loukky/gfwlist.txt'
 
 config socks5_proxy
 	option socks '0'
@@ -37,11 +37,9 @@ config access_control
 	list wan_fw_ips '91.108.56.0/22'
 	list wan_fw_ips '109.239.140.0/24'
 	list wan_bp_ips '64.64.226.117'
-	list wan_bp_ips '156.96.105.240'
-	list wan_bp_ips '155.94.164.135'
 
 config server_global
-	option enable_server '1'
+	option enable_server '0'
 
 config server_subscribe
 	option proxy '0'
@@ -65,32 +63,6 @@ config servers
 	option concurrency '8'
 	option switch_enable '1'
 	option local_port '1234'
-
-config servers
-	option type 'v2ray'
-	option alias 'M2356'
-	option server '5.aromali.tk'
-	option server_port '443'
-	option alter_id '64'
-	option vmess_id '70ac0535-9097-41e3-b29d-91f2ae6ac18f'
-	option security 'aes-128-gcm'
-	option transport 'ws'
-	option ws_path '/2356'
-	option tls '1'
-	option mux '1'
-	option concurrency '8'
-	option switch_enable '1'
-	option local_port '1234'
-
-config servers
-	option type 'trojan'
-	option server '6.aromali.tk'
-	option server_port '443'
-	option password '85525d39'
-	option tls '1'
-	option switch_enable '1'
-	option local_port '1234'
-	option alias 'PR-Trojan'
 
 config server_config
 	option enable '1'

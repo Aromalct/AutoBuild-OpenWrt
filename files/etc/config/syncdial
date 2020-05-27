@@ -9,7 +9,7 @@ config syncdial 'config'
 	option old_frame '1'
 	option devbackup 'wan wan6 wan2'
 	option bindwan '0'
-	option dial_type '1'
 	option wannum '4'
+	option dial_type '1'
 	option enabled '1'
 

@@ -12,6 +12,6 @@ config adbyby
 	list subscribe_url 'https://raw.githubusercontent.com/cjx82630/cjxlist/master/cjx-annoyance.txt'
 	list subscribe_url 'https://gitee.com/xinggsf/Adblock-Rule/raw/master/rule.txt'
 	option enable '1'
-	option block_ios '1'
 	option wan_mode '1'
+	option block_ios '1'
 
