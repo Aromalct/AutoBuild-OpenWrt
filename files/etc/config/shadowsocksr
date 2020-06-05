@@ -39,7 +39,7 @@ config access_control
 	list wan_bp_ips '64.64.226.117'
 
 config server_global
-	option enable_server '0'
+	option enable_server '1'
 
 config server_subscribe
 	option proxy '0'
@@ -63,6 +63,7 @@ config servers
 	option concurrency '8'
 	option switch_enable '1'
 	option local_port '1234'
+	option ip '64.64.226.117'
 
 config server_config
 	option enable '1'

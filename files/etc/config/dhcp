@@ -24,6 +24,12 @@ config dhcp 'lan'
 	option limit '150'
 	option leasetime '12h'
 	option start '3'
+	option dhcpv6 'server'
+	option ra 'server'
+	option ra_slaac '1'
+	list ra_flags 'managed-config'
+	list ra_flags 'other-config'
+	option ra_management '1'
 
 config dhcp 'wan'
 	option interface 'wan'
@@ -179,4 +185,10 @@ config host
 	option mac '5c:e5:0c:42:ec:f2'
 	option ip '192.168.2.36'
 	option name 'mi-blue-gateway'
+
+config odhcpd 'odhcpd'
+	option maindhcp '0'
+	option leasefile '/tmp/hosts/odhcpd'
+	option leasetrigger '/usr/sbin/odhcpd-update'
+	option loglevel '4'
 
