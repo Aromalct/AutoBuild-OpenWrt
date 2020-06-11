@@ -10,6 +10,6 @@ config syncdial 'config'
 	option wannum '3'
 	option enabled '1'
 	option old_frame '0'
-	option dialnum '1'
 	option dialwait '10'
+	option dialnum '2'
 
