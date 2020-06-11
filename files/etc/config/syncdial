@@ -1,7 +1,6 @@
 
 config syncdial 'config'
 	option syncon '1'
-	option dialwait '25'
 	option dialchk '1'
 	option nomwan '0'
 	option wanselect 'wan'
@@ -9,7 +8,8 @@ config syncdial 'config'
 	option bindwan '0'
 	option dial_type '1'
 	option wannum '3'
-	option dialnum '2'
 	option enabled '1'
 	option old_frame '0'
+	option dialnum '1'
+	option dialwait '10'
 
