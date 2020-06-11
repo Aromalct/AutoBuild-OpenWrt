@@ -35,6 +35,6 @@ config service 'f3322'
 	option username 'root'
 	option password '12345678'
 	option ip_source 'interface'
-	option interface 'vwan2'
-	option ip_interface 'pppoe-vwan2'
+	option interface 'wan'
+	option ip_interface 'pppoe-wan'
 
