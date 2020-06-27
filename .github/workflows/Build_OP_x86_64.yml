@@ -86,8 +86,8 @@ jobs:
         REPO_BRANCH2: master
       run: |
         git clone --depth 1 $REPO_URL2 -b $REPO_BRANCH2 temp
-        #  mv temp/files openwrt
-        rm -rf temp
+    #    mv temp/files openwrt
+    #    rm -rf temp
         
     - name: 更新和安装feeds
       working-directory: ./openwrt
