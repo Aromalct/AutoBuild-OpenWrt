@@ -29,12 +29,9 @@ config service 'myddns_ipv6'
 
 config service 'f3322'
 	option service_name '3322.org'
-	option enabled '1'
 	option lookup_host 'aromalct.f3322.net'
 	option domain 'aromalct.f3322.net'
 	option username 'root'
 	option password '12345678'
-	option ip_source 'interface'
-	option interface 'wan'
-	option ip_interface 'pppoe-wan'
+	option enabled '1'
 

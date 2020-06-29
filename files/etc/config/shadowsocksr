@@ -7,28 +7,20 @@ config global
 	option monitor_enable '1'
 	option enable_switch '1'
 	option switch_timeout '5'
+	option switch_time '667'
 	option switch_try_count '3'
+	option gfwlist_url 'https://cdn.jsdelivr.net/gh/Loukky/gfwlist-by-loukky/gfwlist.txt'
 	option chnroute_url 'https://ispip.clang.cn/all_cn.txt'
-	option nfip_url 'https://raw.githubusercontent.com/QiuSimons/Netflix_IP/master/NF_only.txt'
+	option nfip_url 'https://cdn.jsdelivr.net/gh/QiuSimons/Netflix_IP/NF_only.txt'
 	option adblock_url 'https://gitee.com/privacy-protection-tools/anti-ad/raw/master/anti-ad-for-dnsmasq.conf'
-	option netflix_server 'nil'
 	option threads '0'
-	option global_server 'cfg064a8f'
+	option netflix_server 'nil'
 	option netflix_proxy '0'
 	option tunnel_forward '1.1.1.1:53'
+	option global_server 'cfg064a8f'
 	option udp_relay_server 'same'
-	option adblock '1'
-	option switch_time '60'
-	option gfwlist_url 'https://cdn.jsdelivr.net/gh/Loukky/gfwlist-by-loukky/gfwlist.txt'
-
-config socks5_proxy
-	option socks '0'
-	option local_port '1080'
-	option local_address '0.0.0.0'
-	option server 'nil'
 
 config access_control
-	option wan_bp_list '/etc/ssr/china_ssr.txt'
 	option lan_ac_mode 'b'
 	option router_proxy '1'
 	list wan_fw_ips '149.154.160.0/20'
@@ -37,9 +29,15 @@ config access_control
 	list wan_fw_ips '91.108.56.0/22'
 	list wan_fw_ips '109.239.140.0/24'
 	list wan_bp_ips '64.64.226.117'
+	list wan_bp_ips '208.64.228.44'
+
+config socks5_proxy
+	option socks '0'
+	option local_port '1080'
+	option local_address '0.0.0.0'
 
 config server_global
-	option enable_server '1'
+	option enable_server '0'
 
 config server_subscribe
 	option proxy '0'
@@ -58,6 +56,7 @@ config servers
 	option security 'aes-128-gcm'
 	option transport 'ws'
 	option ws_path '/2356'
+	option insecure '1'
 	option tls '1'
 	option mux '1'
 	option concurrency '8'
@@ -65,10 +64,20 @@ config servers
 	option local_port '1234'
 	option ip '64.64.226.117'
 
-config server_config
-	option enable '1'
-	option type 'socks5'
-	option server_port '10800'
-	option username 'Aromalct'
-	option password 'Aromalct1982'
+config servers
+	option type 'v2ray'
+	option alias 'RN-2356'
+	option server 'www.aromali.tk'
+	option server_port '443'
+	option alter_id '64'
+	option vmess_id '70ac0535-9097-41e3-b29d-91f2ae6ac18f'
+	option security 'aes-128-gcm'
+	option transport 'ws'
+	option ws_path '/2356'
+	option insecure '1'
+	option tls '1'
+	option mux '1'
+	option concurrency '8'
+	option switch_enable '1'
+	option local_port '1234'
 
