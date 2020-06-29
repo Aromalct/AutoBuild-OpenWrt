@@ -1,9 +1,0 @@
-
-config service 'ipsec'
-	option clientdns '192.168.2.2'
-	option account 'root'
-	option clientip '192.168.2.50/24'
-	option password '123456'
-	option secret '123456'
-	option enabled '0'
-
