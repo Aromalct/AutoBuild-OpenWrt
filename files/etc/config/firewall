@@ -1,4 +1,34 @@
 
+config redirect
+	option target 'DNAT'
+	option src 'wan'
+	option dest 'lan'
+	option proto 'tcp udp'
+	option src_dport '7089'
+	option dest_ip '192.168.2.2'
+	option dest_port '80'
+	option name 'openwrt'
+
+config redirect
+	option target 'DNAT'
+	option src 'wan'
+	option dest 'lan'
+	option proto 'tcp udp'
+	option src_dport '7087'
+	option dest_ip '192.168.2.150'
+	option dest_port '443'
+	option name 'ESXI'
+
+config redirect
+	option target 'DNAT'
+	option src 'wan'
+	option dest 'lan'
+	option proto 'tcp udp'
+	option src_dport '7090'
+	option dest_ip '192.168.2.3'
+	option dest_port '80'
+	option name 'Jike'
+
 config defaults
 	option syn_flood '1'
 	option input 'ACCEPT'
@@ -209,34 +239,4 @@ config include 'unblockmusic'
 	option type 'script'
 	option path '/var/etc/unblockmusic.include'
 	option reload '1'
-
-config redirect
-	option target 'DNAT'
-	option src 'wan'
-	option dest 'lan'
-	option proto 'tcp udp'
-	option src_dport '7087'
-	option dest_ip '192.168.2.150'
-	option dest_port '443'
-	option name 'ESXI'
-
-config redirect
-	option target 'DNAT'
-	option src 'wan'
-	option dest 'lan'
-	option proto 'tcp udp'
-	option src_dport '7089'
-	option dest_ip '192.168.2.2'
-	option dest_port '80'
-	option name 'openwrt'
-
-config redirect
-	option target 'DNAT'
-	option src 'wan'
-	option dest 'lan'
-	option proto 'tcp udp'
-	option src_dport '7090'
-	option dest_ip '192.168.2.3'
-	option dest_port '80'
-	option name 'Jike'
 
