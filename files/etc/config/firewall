@@ -159,24 +159,6 @@ config rule
 config include
 	option path '/etc/firewall.user'
 
-config include 'miniupnpd'
-	option type 'script'
-	option path '/usr/share/miniupnpd/firewall.include'
-	option family 'any'
-	option reload '1'
-
-config include 'adbyby'
-	option type 'script'
-	option path '/var/etc/adbyby.include'
-	option reload '1'
-
-config rule 'adblock'
-	option name 'adblock'
-	option target 'DROP'
-	option src 'wan'
-	option proto 'tcp'
-	option dest_port '8118'
-
 config include 'ipsecd'
 	option type 'script'
 	option path '/etc/ipsec.include'
@@ -208,14 +190,32 @@ config rule 'esp'
 	option src 'wan'
 	option proto 'esp'
 
-config include 'softethervpn'
-	option type 'script'
-	option path '/usr/share/softethervpn/firewall.include'
-	option reload '1'
-
 config include 'v2ray_server'
 	option type 'script'
 	option path '/usr/share/v2ray_server/firewall.include'
+	option reload '1'
+
+config include 'miniupnpd'
+	option type 'script'
+	option path '/usr/share/miniupnpd/firewall.include'
+	option family 'any'
+	option reload '1'
+
+config include 'adbyby'
+	option type 'script'
+	option path '/var/etc/adbyby.include'
+	option reload '1'
+
+config rule 'adblock'
+	option name 'adblock'
+	option target 'DROP'
+	option src 'wan'
+	option proto 'tcp'
+	option dest_port '8118'
+
+config include 'softethervpn'
+	option type 'script'
+	option path '/usr/share/softethervpn/firewall.include'
 	option reload '1'
 
 config rule 'kms'

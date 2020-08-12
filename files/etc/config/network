@@ -7,6 +7,7 @@ config interface 'loopback'
 
 config globals 'globals'
 	option ula_prefix 'fd0b:9073:87e9::/48'
+	option packet_steering '1'
 
 config interface 'lan'
 	option type 'bridge'
