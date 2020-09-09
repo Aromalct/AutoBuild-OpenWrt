@@ -240,3 +240,14 @@ config include 'unblockmusic'
 	option path '/var/etc/unblockmusic.include'
 	option reload '1'
 
+config redirect
+	option enabled '1'
+	option target 'DNAT'
+	option src 'wan'
+	option dest 'lan'
+	option proto 'tcp udp'
+	option src_dport '5000'
+	option dest_ip '192.168.2.26'
+	option dest_port '5000'
+	option name 'nas'
+

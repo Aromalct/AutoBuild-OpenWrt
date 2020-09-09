@@ -1,0 +1,6 @@
+
+config sfe 'config'
+	option bbr '0'
+	option dns '0'
+	option enabled '0'
+

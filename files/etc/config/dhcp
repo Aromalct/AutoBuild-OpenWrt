@@ -60,10 +60,10 @@ config host
 	option ip '192.168.2.5'
 
 config host
-	option name 'Jike-AP-K2'
 	option dns '1'
 	option mac 'cc:81:da:b4:59:89'
 	option ip '192.168.2.6'
+	option name 'Jike-AP-K2shu'
 
 config host
 	option name 'Jike-AP-K2zu'
@@ -190,4 +190,16 @@ config host
 	option dns '1'
 	option mac '40:31:3c:b7:98:91'
 	option ip '192.168.2.37'
+
+config host
+	option name 'MiAiSoundbox-LX05'
+	option dns '1'
+	option mac '88:c3:97:79:be:b5'
+	option ip '192.168.2.38'
+
+config host
+	option name 'Aroma-DSM'
+	option dns '1'
+	option mac '00:11:32:88:b0:01'
+	option ip '192.168.2.26'
 
