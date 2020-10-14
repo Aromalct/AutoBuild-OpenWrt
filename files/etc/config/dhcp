@@ -144,6 +144,18 @@ config host
 	option ip '192.168.2.25'
 
 config host
+	option name 'Aroma-DSM'
+	option dns '1'
+	option mac '00:11:32:88:b0:01'
+	option ip '192.168.2.26'
+
+config host
+	option name 'aroma-virtual-ubuntu'
+	option dns '1'
+	option mac '1c:9e:46:41:5f:b9'
+	option ip '192.168.2.27'
+
+config host
 	option name 'MiAi_HD'
 	option dns '1'
 	option mac 'cc:4b:73:a3:0e:38'
@@ -197,9 +209,4 @@ config host
 	option mac '88:c3:97:79:be:b5'
 	option ip '192.168.2.38'
 
-config host
-	option name 'Aroma-DSM'
-	option dns '1'
-	option mac '00:11:32:88:b0:01'
-	option ip '192.168.2.26'
 
