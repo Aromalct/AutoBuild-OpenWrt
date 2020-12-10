@@ -1,4 +1,4 @@
 
 config softether
-	option enable '0'
+	option enable '1'
 

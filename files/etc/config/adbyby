@@ -7,10 +7,10 @@ config adbyby
 	option update_source '1'
 	option block_ios '1'
 	option block_douyin '0'
-	option enable '1'
 	option wan_mode '0'
 	list subscribe_url 'https://anti-ad.net/anti-ad-for-dnsmasq.conf'
 	list subscribe_url 'https://raw.githubusercontent.com/jdlingyu/ad-wars/master/hosts'
 	list subscribe_url 'https://raw.githubusercontent.com/vokins/yhosts/master/hosts'
 	list subscribe_url 'https://gitee.com/halflife/list/raw/master/ad.txt'
+	option enable '1'
 
