@@ -1,0 +1,15 @@
+
+config global
+	option out '0'
+	option stop '100'
+	option remote_url 'https://raw.githubusercontent.com/NobyDa/Script/master/JD-DailyBonus/JD_DailyBonus.js'
+	option serverurl 'scu'
+	option auto_update '1'
+	option auto_update_time '23'
+	option auto_run '1'
+	option auto_run_time '0'
+	option auto_run_time_h '1'
+	option auto_run_time_m '28'
+	option cookie 'pt_key=AAJgUAlTADCXFHE1bQAUwi4HdjRxQqiO0YTX70mpYnq9lMQzs7dDq1iIakuJzk3rzKSHXdm5Uzo;pt_pin=aroma159;'
+	option version '2.0.1'
+
